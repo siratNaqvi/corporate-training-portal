@@ -1,0 +1,237 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6fb;
+}
+
+/* ===================== LAYOUT ===================== */
+.layout {
+  display: flex;
+  width: 100%;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #1e1e2f;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* Logo */
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #4f9cff;
+}
+
+/* Section title */
+.sidebar p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 10px 0 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.sidebar a {
+  text-decoration: none;
+  color: #cfd6e4;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  display: block;
+  font-size: 14px;
+}
+
+/* Hover */
+.sidebar a:hover {
+  background: rgba(79, 156, 255, 0.15);
+  color: #4f9cff;
+  transform: translateX(5px);
+}
+
+/* Active */
+.sidebar .active {
+  background: #4f9cff;
+  color: white;
+  font-weight: 600;
+}
+
+/* Divider */
+.sidebar hr {
+  border: none;
+  height: 1px;
+  background: #333;
+  margin: 10px 0;
+}
+
+/* ===================== MAIN CONTENT ===================== */
+.main {
+  flex: 1;
+  margin-left: 250px; /* FIX FOR OVERLAP */
+  padding: 25px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header button {
+  background: #4f9cff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header button:hover {
+  background: #2f7ee6;
+}
+
+/* ===================== STATS ===================== */
+.stats {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ===================== CARDS ===================== */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* FIX: prevent shadow overlap issues */
+.stats,
+.card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===================== PROGRESS ===================== */
+.progress {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #4f9cff;
+}
+
+/* ===================== ACTIVITY ===================== */
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===================== BADGES ===================== */
+.badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.progress-badge {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.assigned {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.overdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.training-item {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.training-item button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.module-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.quiz-btn {
+  background: #4f46e5;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.quiz-btn:hover {
+  background: #4338ca;
+}

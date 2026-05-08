@@ -1,0 +1,97 @@
+.cert-page {
+  padding: 30px;
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.cert-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cert-header h1 {
+  font-size: 32px;
+  color: #1f2937;
+}
+
+.cert-header p {
+  color: #6b7280;
+}
+
+/* GRID */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.cert-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  position: relative;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* ICON */
+.cert-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* CONTENT */
+.cert-content h2 {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.cert-content p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 4px 0;
+}
+
+/* BADGE */
+.cert-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* BUTTON */
+.cert-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cert-btn:hover {
+  background: #1d4ed8;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 50px;
+  color: #6b7280;
+}

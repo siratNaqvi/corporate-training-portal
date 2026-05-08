@@ -1,0 +1,84 @@
+/* Page wrapper */
+.trainings-page {
+  margin-left: 250px;
+  padding: 25px;
+}
+
+/* Header */
+.trainings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.trainings-header h2 {
+  margin: 0;
+}
+
+/* Button */
+.trainings-header button {
+  background: #4f9cff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.trainings-header button:hover {
+  background: #2f7ee6;
+}
+
+/* Grid layout */
+.trainings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Card */
+.training-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.training-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Title */
+.training-card h3 {
+  margin: 0 0 10px 0;
+  color: #1e1e2f;
+}
+
+/* Description */
+.training-card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Footer */
+.training-footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Badge */
+.badge {
+  padding: 5px 10px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 12px;
+}
