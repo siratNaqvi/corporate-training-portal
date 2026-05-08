@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
-import { User } from "../entities/User.js";
-import { TrainingProgram } from "../entities/TrainingProgram.js";
-import { CourseModule } from "../entities/CourseModule.js";
-import { Enrollment } from "../entities/Enrollment.js";
-import { Quiz } from "../entities/Quiz.js";
-import { QuizResult } from "../entities/QuizResult.js";
-import { Certificate } from "../entities/Certificate.js";
+import User from "../entities/User.js";
+import TrainingProgram from "../entities/TrainingProgram.js";
+import CourseModule from "../entities/CourseModule.js";
+import Enrollment from "../entities/Enrollment.js";
+import Quiz from "../entities/Quiz.js";
+import QuizResult from "../entities/QuizResult.js";
+import Certificate from "../entities/Certificate.js";
 
 dotenv.config();
 
