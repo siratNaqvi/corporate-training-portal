@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import AppDataSource from "./config/data-source.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
-// routes
 import authRoutes from "./routes/authRoutes.js";
 import trainingRoutes from "./routes/trainingRoutes.js";
 import moduleRoutes from "./routes/moduleRoutes.js";
@@ -14,9 +13,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ FIXED CORS (IMPORTANT)
+// ✅ FIXED CORS - allows both local and deployed frontend
 app.use(cors({
-  origin: "http://localhost:5173", // 👈 FIXED
+  origin: [
+    "http://localhost:5173",
+    "https://corporate-training-portal.vercel.app",
+    "https://corporate-training-portal-960lucpkq-siratnaqvis-projects.vercel.app"
+  ],
   credentials: true
 }));
 
@@ -44,11 +47,10 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-// DB + server start
+// DB + server start (for local dev)
 AppDataSource.initialize()
   .then(() => {
     console.log("Database connected");
-
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
@@ -56,3 +58,6 @@ AppDataSource.initialize()
   .catch((err) => {
     console.log("DB connection error:", err);
   });
+
+// ✅ REQUIRED for Vercel
+export default app;
