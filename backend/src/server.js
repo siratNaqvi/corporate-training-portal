@@ -15,11 +15,21 @@ const PORT = process.env.PORT || 5000;
 
 // ✅ CORS
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-     "https://corporate-training-portal-k71x.vercel.app",
-    "https://corporate-training-portal-960lucpkq-siratnaqvis-projects.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    
+    // ✅ Allow localhost
+    // ✅ Allow ANY vercel.app domain
+    if (
+      origin.includes("localhost") ||
+      origin.includes("vercel.app")
+    ) {
+      return callback(null, true);
+    }
+
+    callback(new Error("Not allowed by CORS"));
+  },
   credentials: true
 }));
 
