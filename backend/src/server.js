@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ FIXED CORS - allows both local and deployed frontend
+// ✅ CORS
 app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -24,6 +24,27 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// ✅ Initialize DB once - works for both local and Vercel
+let isDbInitialized = false;
+
+const initializeDb = async () => {
+  if (!isDbInitialized) {
+    try {
+      await AppDataSource.initialize();
+      isDbInitialized = true;
+      console.log("Database connected");
+    } catch (err) {
+      console.error("DB connection error:", err);
+    }
+  }
+};
+
+// ✅ This ensures DB is connected before every request
+app.use(async (req, res, next) => {
+  await initializeDb();
+  next();
+});
 
 // routes
 app.use("/api/auth", authRoutes);
@@ -47,17 +68,12 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-// DB + server start (for local dev)
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Database connected");
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.log("DB connection error:", err);
+// ✅ Local development only
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
   });
+}
 
-// ✅ REQUIRED for Vercel
+// ✅ Required for Vercel
 export default app;
