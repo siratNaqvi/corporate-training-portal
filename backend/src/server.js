@@ -15,12 +15,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ✅ FIXED CORS (IMPORTANT)
-// New ✅
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://corporate-training-portal-k71x.vercel.app"
-  ],
+  origin: "http://localhost:5173", // 👈 FIXED
   credentials: true
 }));
 
