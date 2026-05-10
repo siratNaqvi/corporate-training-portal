@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../api/axios";
+import "../styles/create-quiz.css";
 
 export default function CreateQuiz() {
   const [question, setQuestion] = useState("");
@@ -15,11 +16,12 @@ export default function CreateQuiz() {
 
     try {
       console.log("SENDING QUIZ:", {
-  module_id: moduleId,
-  question
-});
+        module_id: moduleId,
+        question,
+      });
+
       await api.post("/quiz/create", {
-       module_id: Number(moduleId),
+        module_id: Number(moduleId),
         question,
         option_a: optionA,
         option_b: optionB,
@@ -45,56 +47,75 @@ export default function CreateQuiz() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Create Quiz</h2>
+    <div className="create-quiz-container">
+      <div className="create-quiz-card">
 
-      <form onSubmit={handleSubmit}>
+        <h2>Create Quiz</h2>
 
-        <input
-          placeholder="Module ID"
-          value={moduleId}
-          onChange={(e) => setModuleId(e.target.value)}
-        />
+        <form onSubmit={handleSubmit} className="quiz-form">
 
-        <input
-          placeholder="Question"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-        />
+          <input
+            type="number"
+            placeholder="Module ID"
+            value={moduleId}
+            onChange={(e) => setModuleId(e.target.value)}
+            required
+          />
 
-        <input
-          placeholder="Option A"
-          value={optionA}
-          onChange={(e) => setOptionA(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Question"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            required
+          />
 
-        <input
-          placeholder="Option B"
-          value={optionB}
-          onChange={(e) => setOptionB(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Option A"
+            value={optionA}
+            onChange={(e) => setOptionA(e.target.value)}
+            required
+          />
 
-        <input
-          placeholder="Option C"
-          value={optionC}
-          onChange={(e) => setOptionC(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Option B"
+            value={optionB}
+            onChange={(e) => setOptionB(e.target.value)}
+            required
+          />
 
-        <input
-          placeholder="Option D"
-          value={optionD}
-          onChange={(e) => setOptionD(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Option C"
+            value={optionC}
+            onChange={(e) => setOptionC(e.target.value)}
+            required
+          />
 
-        <input
-          placeholder="Correct Answer (A/B/C/D)"
-          value={correctAnswer}
-          onChange={(e) => setCorrectAnswer(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Option D"
+            value={optionD}
+            onChange={(e) => setOptionD(e.target.value)}
+            required
+          />
 
-        <button type="submit">Create Quiz</button>
+          <input
+            type="text"
+            placeholder="Correct Answer (A/B/C/D)"
+            value={correctAnswer}
+            onChange={(e) => setCorrectAnswer(e.target.value)}
+            required
+          />
 
-      </form>
+          <button type="submit">
+            Create Quiz
+          </button>
+
+        </form>
+      </div>
     </div>
   );
 }
